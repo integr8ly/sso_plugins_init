@@ -1,7 +1,7 @@
 ORG=integreatly
 PROJECT=sso_plugins_init
 REG=quay.io
-TAG=0.0.1
+TAG=0.0.2
 PKG=github.com/integr8ly/sso_plugins_init
 
 .PHONY: image/build
