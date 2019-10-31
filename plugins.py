@@ -6,12 +6,9 @@ import urllib.request
 import random
 import string
 from shutil import copyfileobj
-from distutils.dir_util import copy_tree
-from distutils import log
 
 extensionsKey = "KEYCLOAK_EXTENSIONS"
 extensionsVolume = "/opt/extensions"
-themesPath = "/opt/themes"
 
 def randomFileName():
     letters = string.ascii_lowercase
@@ -45,20 +42,12 @@ def getExtensions():
             result.append(extension)
     return result
 
-def copyThemes():
-    copy_tree('./themes', themesPath, verbose=1)
-
 def main():
-    log.set_verbosity(log.INFO)
-    log.set_threshold(log.INFO)
-
     # Handle extensions
     for extension in getExtensions():
         try:
             downloadExtension(extension)
         except Exception as e:
             print(e)
-
-    copyThemes()
 
 main()
