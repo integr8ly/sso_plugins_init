@@ -1,7 +1,4 @@
-FROM python:3
-
-COPY keycloak-metrics-spi.jar ./
-COPY openshift4-idp.jar ./
+FROM python:3-alpine
 
 COPY themes/ ./themes/
 
